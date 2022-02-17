@@ -25,7 +25,10 @@ import com.hyphenate.easeim.DemoHelper;
 import com.hyphenate.easeim.R;
 import com.hyphenate.easeim.common.constant.DemoConstant;
 import com.hyphenate.easeim.common.livedatas.LiveDataBus;
-import com.hyphenate.easeim.common.model.EmojiconExampleGroupData;
+import com.hyphenate.easeim.common.model.EmojiBoyData;
+import com.hyphenate.easeim.common.model.EmojiGirlData;
+import com.hyphenate.easeim.common.model.EmojiQiQiData;
+import com.hyphenate.easeim.common.model.EmojiXiaoZhiData;
 import com.hyphenate.easeim.section.av.VideoCallActivity;
 import com.hyphenate.easeim.section.base.BaseActivity;
 import com.hyphenate.easeim.section.chat.activity.ForwardMessageActivity;
@@ -140,7 +143,11 @@ public class ChatFragment extends EaseChatFragment implements OnRecallMessageRes
             }
         }
         //添加扩展表情
-        chatLayout.getChatInputMenu().getEmojiconMenu().addEmojiconGroup(EmojiconExampleGroupData.getData());
+//        chatLayout.getChatInputMenu().getEmojiconMenu().addEmojiconGroup(EmojiconExampleGroupData.getData());
+        chatLayout.getChatInputMenu().getEmojiconMenu().addEmojiconGroup(EmojiXiaoZhiData.getData());
+        chatLayout.getChatInputMenu().getEmojiconMenu().addEmojiconGroup(EmojiQiQiData.getData());
+        chatLayout.getChatInputMenu().getEmojiconMenu().addEmojiconGroup(EmojiBoyData.getData());
+        chatLayout.getChatInputMenu().getEmojiconMenu().addEmojiconGroup(EmojiGirlData.getData());
     }
 
     @Override

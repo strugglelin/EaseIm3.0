@@ -1,5 +1,7 @@
 package com.hyphenate.easeim;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -39,7 +41,10 @@ import com.hyphenate.easeim.common.db.DemoDbHelper;
 import com.hyphenate.easeim.common.livedatas.LiveDataBus;
 import com.hyphenate.easeim.common.manager.UserProfileManager;
 import com.hyphenate.easeim.common.model.DemoModel;
-import com.hyphenate.easeim.common.model.EmojiconExampleGroupData;
+import com.hyphenate.easeim.common.model.EmojiBoyData;
+import com.hyphenate.easeim.common.model.EmojiGirlData;
+import com.hyphenate.easeim.common.model.EmojiQiQiData;
+import com.hyphenate.easeim.common.model.EmojiXiaoZhiData;
 import com.hyphenate.easeim.common.receiver.HeadsetReceiver;
 import com.hyphenate.easeim.common.utils.FetchUserInfoList;
 import com.hyphenate.easeim.common.utils.FetchUserRunnable;
@@ -90,8 +95,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
-
-import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 /**
  * 作为hyphenate-sdk的入口控制类，获取sdk下的基础类均通过此类
@@ -351,12 +354,45 @@ public class DemoHelper {
                 .setEmojiconInfoProvider(new EaseEmojiconInfoProvider() {
                     @Override
                     public EaseEmojicon getEmojiconInfo(String emojiconIdentityCode) {
-                        EaseEmojiconGroupEntity data = EmojiconExampleGroupData.getData();
-                        for(EaseEmojicon emojicon : data.getEmojiconList()){
-                            if(emojicon.getIdentityCode().equals(emojiconIdentityCode)){
-                                return emojicon;
+//                        EaseEmojiconGroupEntity data = EmojiconExampleGroupData.getData();
+//                        for(EaseEmojicon emojicon : data.getEmojiconList()){
+//                            if(emojicon.getIdentityCode().equals(emojiconIdentityCode)){
+//                                return emojicon;
+//                            }
+//                        }
+                        if(emojiconIdentityCode.startsWith("xiaozhi")){
+                            EaseEmojiconGroupEntity data = EmojiXiaoZhiData.getData();
+                            for(EaseEmojicon emojicon : data.getEmojiconList()){
+                                if(emojicon.getIdentityCode().equals(emojiconIdentityCode)){
+                                    return emojicon;
+                                }
                             }
                         }
+                        else if(emojiconIdentityCode.startsWith("qiqi")){
+                            EaseEmojiconGroupEntity data = EmojiQiQiData.getData();
+                            for(EaseEmojicon emojicon : data.getEmojiconList()){
+                                if(emojicon.getIdentityCode().equals(emojiconIdentityCode)){
+                                    return emojicon;
+                                }
+                            }
+                        }
+                        else if(emojiconIdentityCode.startsWith("boy")){
+                            EaseEmojiconGroupEntity data = EmojiBoyData.getData();
+                            for(EaseEmojicon emojicon : data.getEmojiconList()){
+                                if(emojicon.getIdentityCode().equals(emojiconIdentityCode)){
+                                    return emojicon;
+                                }
+                            }
+                        }
+                        else if(emojiconIdentityCode.startsWith("girl")){
+                            EaseEmojiconGroupEntity data = EmojiGirlData.getData();
+                            for(EaseEmojicon emojicon : data.getEmojiconList()){
+                                if(emojicon.getIdentityCode().equals(emojiconIdentityCode)){
+                                    return emojicon;
+                                }
+                            }
+                        }
+
                         return null;
                     }
 
