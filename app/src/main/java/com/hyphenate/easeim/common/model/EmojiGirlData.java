@@ -94,7 +94,7 @@ public class EmojiGirlData {
             datas[i] = new EaseEmojicon(icons[i], null, Type.BIG_EXPRESSION);
             datas[i].setBigIcon(bigIcons[i]);
             datas[i].setName(names[i]);
-            datas[i].setIdentityCode("girl"+ i);
+            datas[i].setIdentityCode(ids[i]);
         }
         emojiconGroupEntity.setEmojiconList(Arrays.asList(datas));
         emojiconGroupEntity.setIcon(R.drawable.icon_girl);
